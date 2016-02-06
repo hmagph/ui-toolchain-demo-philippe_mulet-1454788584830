@@ -5,8 +5,11 @@ $application = getenv("VCAP_APPLICATION");
 $application_json = json_decode($application, true);
 $applicationURI = $application_json["application_uris"][0];
 $ordersHost = str_replace("-ui-", "-orders-api-", $applicationURI);
+echo "\r\nordersHost:" . $ordersHost;
 $ordersRoute = "http://" . $ordersHost;
+echo "\r\nordersRoute:" . $ordersRoute;
 $ordersURL = $ordersRoute . "/rest/orders";
+echo "\r\nordersURL:" . $ordersURL;
 
 function httpPost($data,$url)
 {
